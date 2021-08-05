@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * print_line - entry point
+ * print_diagonal - entry point
  *
  * Description: Prints diagonal lines
  *@n: number of diagonal lines
