@@ -1,16 +1,16 @@
 #include "holberton.h"
 
 /**
- * *leet - change vowels to numbers
- * @s: analized string
+ * leet - change vowels to numbers.
+ * @s: analized string.
  *
- * Return: String with all vowels changed to number
+ * Return: String with all vowels changed.
  */
 
 char *leet(char *s)
 {
 	char a[] = "aeotlAEOTL";
-	int n[] = "4307143071";
+	char n[] = "4307143071";
 	int i = 0;
 	int j;
 
@@ -25,7 +25,6 @@ char *leet(char *s)
 		}
 		i++;
 	}
-
 	return (s);
 }
 
