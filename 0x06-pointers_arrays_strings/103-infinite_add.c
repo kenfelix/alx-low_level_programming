@@ -38,11 +38,15 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		else
 			sum = carry;
 		if (sum > 9)
+		{
 			carry = sum / 10;
 			sum = (sum % 10) + '0';
+		}
 		else
+		{
 			carry = 0;
 			sum = sum + '0';
+		}
 		r[biggest] = sum;
 		a_len--;
 		b_len--;
