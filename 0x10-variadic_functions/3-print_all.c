@@ -3,37 +3,51 @@
 #include "variadic_functions.h"
 
 /**
- * print_strings - prints all the given strings.
- * @separator: define character to separate the strings.
- * @n: number of strings to be printed.
- * Return: a string with strings.
+ * print_all - prints all the given strings.
+ * @format: the kind of format c for char s for string i for int f for
+ * float.
+ * Return: a string with tha arguments.
  */
 
-void print_strings(const char *separator, const unsigned int n, ...)
+void print_all(const char * const format, ...)
 {
-	unsigned int i;
+	unsigned int i = 0;
+	char *str;
 	va_list arguments;
-	char *s;
 
-	va_start(arguments, n);
-
-	for (i = 1; i <= n; i++)
+	va_start(arguments, format);
+	while (format && format[i] != '\0')
 	{
-		s = va_arg(arguments, char*);
-
-		if (s)
-			printf("%s", s);
-		else
-			printf("(nil)");
-
-		if (separator && i < n)
-			printf("%s", separator);
-		else
+		switch (format[i])
 		{
-			;
+		case 'c':
+			printf("%c", va_arg(arguments, char));
+			break;
+		case 'i':
+			printf("%i", va_arg(arguments, int));
+			break;
+		case 'f':
+			printf("%f", va_arg(arguments, float));
+			break;
+		case 's':
+			str = va_arg(arguments, char *);
+			if (str)
+			{
+				printf("%s", str);
+				break;
+			}
+			printf("(nil)");
+			break;
+		default:
+			i++;
+			continue;
 		}
+		if (format[i + 1] != '\0')
+			printf(", ");
+
+		i++;
 	}
-	printf("\n");
 	va_end(arguments);
+	printf("\n");
 }
 
