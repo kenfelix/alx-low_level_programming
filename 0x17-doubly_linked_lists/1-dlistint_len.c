@@ -15,10 +15,14 @@ size_t dlistint_len(const dlistint_t *h)
 	{
 		printf("%s", "Empty list");
 	}
+	if (h == 0)
+	{
+		printf("%s", "not a node")
+	}
 	while (h != NULL)
 	{
-		len++;
 		h = h->next;
+		len++
 	}
 	return (len);
 }
